@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Seed First Principles Record -->
+    <record id="seed_fp_spacex" model="axiomos.first.principles">
+        <field name="name">Struktur Roket Orbital (Studi Kasus SpaceX Falcon 9)</field>
+        <field name="industry_assumption">Harga beli roket orbital dari vendor dirgantara adalah $65 Juta per unit dan tidak bisa diturunkan.</field>
+        <field name="fundamental_truth">Roket tersusun dari aluminium kelas dirgantara, titanium, tembaga, dan serat karbon yang nilai komoditasnya di pasar logam hanya ~2% dari harga roket.</field>
+        <field name="new_solution">Beli bahan baku logam mentah langsung dan integrasikan fabrikasi 85% komponen secara in-house ditambah sistem pendaratan ulang (reusable).</field>
+        <field name="market_price">65000000</field>
+        <field name="target_build_cost">6500000</field>
+    </record>
+
+    <record id="seed_fp_line_1" model="axiomos.first.principles.line">
+        <field name="canvas_id" ref="seed_fp_spacex"/>
+        <field name="name">Aluminium-Lithium Alloy &amp; Titanium</field>
+        <field name="cost">750000</field>
+    </record>
+    <record id="seed_fp_line_2" model="axiomos.first.principles.line">
+        <field name="canvas_id" ref="seed_fp_spacex"/>
+        <field name="name">Tembaga,Serat Karbon &amp; Avionik Dasar</field>
+        <field name="cost">550000</field>
+    </record>
+
+    <!-- Seed Flat-Org DRI Pod -->
+    <record id="seed_pod_raptor" model="axiomos.erp.pod">
+        <field name="name">Pod Propulsi &amp; Struktur In-House</field>
+        <field name="mission">Merakit turbopump dan tangki roket secara mandiri dengan siklus iterasi 48 jam tanpa sub-kontraktor berlapis.</field>
+        <field name="dri_name">Lead Propulsion DRI</field>
+        <field name="team_size">6</field>
+        <field name="hierarchy_layers">1</field>
+        <field name="budget_allocated">6500000</field>
+        <field name="budget_spent">2100000</field>
+        <field name="output_units">42</field>
+        <field name="hours_logged">14</field>
+        <field name="source_canvas_id" ref="seed_fp_spacex"/>
+    </record>
+
+    <!-- Seed Lean Meeting -->
+    <record id="seed_meeting_valve" model="axiomos.meeting">
+        <field name="name">Putusan Desain Katup Tekanan Tinggi</field>
+        <field name="expected_decision">Menetapkan spesifikasi segel katup Inconel untuk uji tembak statis besok pagi</field>
+        <field name="duration_minutes">15</field>
+        <field name="state">approved</field>
+    </record>
+
+    <record id="seed_participant_1" model="axiomos.meeting.participant">
+        <field name="meeting_id" ref="seed_meeting_valve"/>
+        <field name="name">Chief Engineer</field>
+        <field name="contribution_role">Penentu arsitektur &amp; otorisasi risiko</field>
+        <field name="hourly_rate_cost">1200</field>
+    </record>
+    <record id="seed_participant_2" model="axiomos.meeting.participant">
+        <field name="meeting_id" ref="seed_meeting_valve"/>
+        <field name="name">Valve DRI</field>
+        <field name="contribution_role">Data telemetri uji tekanan</field>
+        <field name="hourly_rate_cost">450</field>
+    </record>
+
+    <!-- Seed High-Velocity Decision -->
+    <record id="seed_decision_1" model="axiomos.decision">
+        <field name="name">Ganti material badan Starship ke Stainless Steel 301/304L</field>
+        <field name="dri_name">Chief Engineer</field>
+        <field name="hours_to_decide">2.5</field>
+        <field name="impact_summary">Biaya material turun drastis dari $135/kg (serat karbon) menjadi $3/kg dengan ketahanan panas tinggi.</field>
+    </record>
+</odoo>

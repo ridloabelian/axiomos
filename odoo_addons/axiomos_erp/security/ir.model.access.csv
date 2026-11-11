@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_axiomos_first_principles_user,axiomos.first.principles.user,model_axiomos_first_principles,base.group_user,1,1,1,1
+access_axiomos_first_principles_line_user,axiomos.first.principles.line.user,model_axiomos_first_principles_line,base.group_user,1,1,1,1
+access_axiomos_time_schedule_user,axiomos.time.schedule.user,model_axiomos_time_schedule,base.group_user,1,1,1,1
+access_axiomos_time_block_user,axiomos.time.block.user,model_axiomos_time_block,base.group_user,1,1,1,1
+access_axiomos_erp_pod_user,axiomos.erp.pod.user,model_axiomos_erp_pod,base.group_user,1,1,1,1
+access_axiomos_meeting_user,axiomos.meeting.user,model_axiomos_meeting,base.group_user,1,1,1,1
+access_axiomos_meeting_participant_user,axiomos.meeting.participant.user,model_axiomos_meeting_participant,base.group_user,1,1,1,1
+access_axiomos_decision_user,axiomos.decision.user,model_axiomos_decision,base.group_user,1,1,1,1

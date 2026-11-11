@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ========================================================== -->
+    <!-- MODULE 1 (HULU): First Principles Lab Views (Odoo 20)      -->
+    <!-- ========================================================== -->
+    <record id="view_axiomos_first_principles_list" model="ir.ui.view">
+        <field name="name">axiomos.first.principles.list</field>
+        <field name="model">axiomos.first.principles</field>
+        <field name="arch" type="xml">
+            <list string="First Principles Lab" decoration-success="verdict == 'RADICAL_BREAKTHROUGH_OPPORTUNITY'" decoration-info="verdict == 'HIGH_OPTIMIZATION_POTENTIAL'">
+                <field name="name"/>
+                <field name="market_price"/>
+                <field name="raw_material_cost"/>
+                <field name="raw_cost_percentage" string="Material (%)"/>
+                <field name="idiocy_index" string="Idiocy Index (x)"/>
+                <field name="potential_savings_percent" string="Hemat (%)"/>
+                <field name="verdict" widget="badge" decoration-success="verdict == 'RADICAL_BREAKTHROUGH_OPPORTUNITY'" decoration-warning="verdict == 'HIGH_OPTIMIZATION_POTENTIAL'"/>
+                <field name="spawned_pod_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_axiomos_first_principles_form" model="ir.ui.view">
+        <field name="name">axiomos.first.principles.form</field>
+        <field name="model">axiomos.first.principles</field>
+        <field name="arch" type="xml">
+            <form string="First Principles &amp; Idiocy Index Deconstructor">
+                <header>
+                    <button name="action_spawn_erp_pod" type="object" string="Jadikan Proyek DRI Pod Baru (Modul 3)" class="btn-primary"/>
+                    <field name="verdict" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Contoh: Baterai Pack / Roket / Kemasan Produk..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Perbandingan Biaya (Analogi vs Fisika Dasar)">
+                            <field name="market_price"/>
+                            <field name="raw_material_cost"/>
+                            <field name="target_build_cost"/>
+                            <field name="spawned_pod_id"/>
+                        </group>
+                        <group string="Metrik Kalkulasi First Principles">
+                            <field name="raw_cost_percentage"/>
+                            <field name="idiocy_index"/>
+                            <field name="potential_savings_percent"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Komponen Bahan Mentah Dasar (BoM)">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="cost" sum="Total Material Dasar"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Analisis First Principles">
+                            <group>
+                                <field name="industry_assumption" placeholder="Apa kata orang/vendor bahwa ini mahal dan tidak mungkin diubah?"/>
+                                <field name="fundamental_truth" placeholder="Apa fakta fisika dan bahan penyusun paling dasarnya?"/>
+                                <field name="new_solution" placeholder="Bagaimana cara merakit ulang dari nol dengan jauh lebih murah &amp; cepat?"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_axiomos_first_principles" model="ir.actions.act_window">
+        <field name="name">1. Hulu: First Principles Lab</field>
+        <field name="res_model">axiomos.first.principles</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================== -->
+    <!-- MODULE 2 (HULU): 5-Minute Time Engine Views (Odoo 20)      -->
+    <!-- ========================================================== -->
+    <record id="view_axiomos_time_schedule_list" model="ir.ui.view">
+        <field name="name">axiomos.time.schedule.list</field>
+        <field name="model">axiomos.time.schedule</field>
+        <field name="arch" type="xml">
+            <list string="5-Minute Time Schedules" decoration-danger="not sleep_compliant or context_switch_violations &gt; 0" decoration-success="focus_efficiency_score &gt;= 90">
+                <field name="name"/>
+                <field name="schedule_date"/>
+                <field name="designated_context"/>
+                <field name="sleep_hours"/>
+                <field name="sleep_compliant"/>
+                <field name="five_minute_slot_count" optional="hide"/>
+                <field name="five_min_aligned_ratio"/>
+                <field name="context_switch_violations"/>
+                <field name="morning_deep_work_minutes"/>
+                <field name="focus_efficiency_score"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_axiomos_time_schedule_form" model="ir.ui.view">
+        <field name="name">axiomos.time.schedule.form</field>
+        <field name="model">axiomos.time.schedule</field>
+        <field name="arch" type="xml">
+            <form string="5-Minute Time Blocking &amp; Context Shield">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Aturan Fokus Harian">
+                            <field name="schedule_date"/>
+                            <field name="designated_context"/>
+                            <field name="sleep_hours"/>
+                            <field name="sleep_compliant"/>
+                        </group>
+                        <group string="Skor &amp; Guardrail">
+                            <field name="focus_efficiency_score"/>
+                            <field name="five_minute_slot_count"/>
+                            <field name="five_min_aligned_ratio"/>
+                            <field name="context_switch_violations"/>
+                            <field name="morning_deep_work_minutes"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Blok Waktu 5-Menit">
+                            <field name="block_ids">
+                                <list editable="bottom">
+                                    <field name="start_minute"/>
+                                    <field name="duration_minutes"/>
+                                    <field name="name"/>
+                                    <field name="context"/>
+                                    <field name="category"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_axiomos_time_schedule" model="ir.actions.act_window">
+        <field name="name">2. Hulu: 5-Min Timebox &amp; Context Shield</field>
+        <field name="res_model">axiomos.time.schedule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================== -->
+    <!-- MODULE 3 (TENGAH): Flat-Org DRI Pods Views (Odoo 20)       -->
+    <!-- ========================================================== -->
+    <record id="view_axiomos_erp_pod_list" model="ir.ui.view">
+        <field name="name">axiomos.erp.pod.list</field>
+        <field name="model">axiomos.erp.pod</field>
+        <field name="arch" type="xml">
+            <list string="Flat-Org DRI Pods" decoration-success="is_autonomous" decoration-danger="not is_autonomous">
+                <field name="name"/>
+                <field name="dri_name"/>
+                <field name="team_size"/>
+                <field name="hierarchy_layers"/>
+                <field name="budget_allocated"/>
+                <field name="budget_spent"/>
+                <field name="budget_utilization_percent" widget="progressbar"/>
+                <field name="output_per_hour"/>
+                <field name="is_autonomous"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_axiomos_erp_pod_form" model="ir.ui.view">
+        <field name="name">axiomos.erp.pod.form</field>
+        <field name="model">axiomos.erp.pod</field>
+        <field name="arch" type="xml">
+            <form string="Flat-Org DRI Pod &amp; Autonomous Micro-ERP">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Kepemilikan DRI &amp; Struktur Organisasi">
+                            <field name="dri_user_id"/>
+                            <field name="dri_name"/>
+                            <field name="team_size"/>
+                            <field name="hierarchy_layers"/>
+                            <field name="source_canvas_id"/>
+                        </group>
+                        <group string="Metrik ERP Real-Time &amp; Otonomi">
+                            <field name="budget_allocated"/>
+                            <field name="budget_spent"/>
+                            <field name="budget_utilization_percent" widget="progressbar"/>
+                            <field name="output_units"/>
+                            <field name="hours_logged"/>
+                            <field name="output_per_hour"/>
+                            <field name="is_flat_compliant"/>
+                            <field name="is_small_team_compliant"/>
+                            <field name="is_autonomous"/>
+                        </group>
+                    </group>
+                    <group string="Misi &amp; Ruang Lingkup Eksekusi">
+                        <field name="mission"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_axiomos_erp_pod" model="ir.actions.act_window">
+        <field name="name">3. Tengah: Flat-Org &amp; Autonomous ERP</field>
+        <field name="res_model">axiomos.erp.pod</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================== -->
+    <!-- MODULE 4 (HILIR): Anti-Meeting & Decisions Views (Odoo 20) -->
+    <!-- ========================================================== -->
+    <record id="view_axiomos_meeting_list" model="ir.ui.view">
+        <field name="name">axiomos.meeting.list</field>
+        <field name="model">axiomos.meeting</field>
+        <field name="arch" type="xml">
+            <list string="Anti-Meeting Gatekeeper" decoration-success="is_gatekeeper_approved" decoration-danger="not is_gatekeeper_approved">
+                <field name="name"/>
+                <field name="expected_decision"/>
+                <field name="duration_minutes"/>
+                <field name="burn_rate_per_minute"/>
+                <field name="projected_total_cost"/>
+                <field name="total_walkout_cost_saved"/>
+                <field name="is_gatekeeper_approved"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_axiomos_meeting_form" model="ir.ui.view">
+        <field name="name">axiomos.meeting.form</field>
+        <field name="model">axiomos.meeting</field>
+        <field name="arch" type="xml">
+            <form string="Anti-Meeting Gatekeeper &amp; Walk-Out Protocol">
+                <header>
+                    <button name="action_approve_meeting" type="object" string="Validasi &amp; Setujui Rapat" class="btn-primary" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Parameter Rapat To-The-Point">
+                            <field name="expected_decision"/>
+                            <field name="duration_minutes"/>
+                            <field name="is_gatekeeper_approved"/>
+                            <field name="gatekeeper_issues"/>
+                        </group>
+                        <group string="Live Burn-Rate &amp; Efisiensi Walk-Out">
+                            <field name="burn_rate_per_second"/>
+                            <field name="burn_rate_per_minute"/>
+                            <field name="projected_total_cost"/>
+                            <field name="total_walkout_cost_saved"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Peserta &amp; Protokol Walk-Out">
+                            <field name="participant_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="contribution_role"/>
+                                    <field name="hourly_rate_cost"/>
+                                    <field name="is_spectator"/>
+                                    <field name="walked_out"/>
+                                    <field name="walk_out_minute"/>
+                                    <field name="minutes_saved"/>
+                                    <field name="cost_saved" sum="Total Hemat Walk-Out"/>
+                                    <button name="action_walk_out" type="object" string="Walk Out Sekarang" class="btn-warning" invisible="walked_out"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_axiomos_meeting" model="ir.actions.act_window">
+        <field name="name">4A. Hilir: Anti-Meeting Gatekeeper</field>
+        <field name="res_model">axiomos.meeting</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_axiomos_decision_list" model="ir.ui.view">
+        <field name="name">axiomos.decision.list</field>
+        <field name="model">axiomos.decision</field>
+        <field name="arch" type="xml">
+            <list string="High-Velocity Decision Log" editable="bottom" decoration-success="velocity_grade == 'S'" decoration-info="velocity_grade == 'A'">
+                <field name="name"/>
+                <field name="dri_name"/>
+                <field name="hours_to_decide"/>
+                <field name="velocity_grade" widget="badge"/>
+                <field name="impact_summary"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_axiomos_decision" model="ir.actions.act_window">
+        <field name="name">4B. Hilir: Decision Velocity Log</field>
+        <field name="res_model">axiomos.decision</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================================================== -->
+    <!-- TOP-LEVEL MENUS                                            -->
+    <!-- ========================================================== -->
+    <menuitem id="menu_axiomos_root" name="AxiomOS" sequence="10"/>
+    <menuitem id="menu_axiomos_fp" name="1. Hulu: First Principles Lab" parent="menu_axiomos_root" action="action_axiomos_first_principles" sequence="10"/>
+    <menuitem id="menu_axiomos_time" name="2. Hulu: 5-Min Time Engine" parent="menu_axiomos_root" action="action_axiomos_time_schedule" sequence="20"/>
+    <menuitem id="menu_axiomos_erp" name="3. Tengah: Flat-Org DRI Pods" parent="menu_axiomos_root" action="action_axiomos_erp_pod" sequence="30"/>
+    <menuitem id="menu_axiomos_meeting" name="4A. Hilir: Anti-Meeting Gatekeeper" parent="menu_axiomos_root" action="action_axiomos_meeting" sequence="40"/>
+    <menuitem id="menu_axiomos_decision" name="4B. Hilir: Decision Velocity" parent="menu_axiomos_root" action="action_axiomos_decision" sequence="50"/>
+</odoo>

@@ -57,7 +57,14 @@ axiomos/
      Tambahkan `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID` pada **Settings → Secrets and variables → Actions** di repositori GitHub. Workflow [`.github/workflows/deploy-cloudflare.yml`](./.github/workflows/deploy-cloudflare.yml) akan otomatis mempublikasikan ke proyek Cloudflare Pages `axiomos`.
    - **Via Wrangler CLI:**
      ```bash
-     npm run deploy:cf
+     npm run deploy:cf:workers
+     ```
+4. **Instalasi Custom Addon di Odoo 20 (`odoo_addons/axiomos_erp`):**
+   - Salin folder [`odoo_addons/axiomos_erp`](./odoo_addons/axiomos_erp) ke direktori `custom_addons` pada server **Odoo 20** Anda.
+   - Restart layanan Odoo, aktifkan *Developer Mode*, klik **Apps → Update Apps List**, lalu cari dan instal **`AxiomOS — First-Principles Hulu-Hilir ERP`** (`axiomos_erp`).
+   - Jalankan unit test logika Python Odoo secara lokal:
+     ```bash
+     npm run test:odoo
      ```
 
 ## Lisensi
