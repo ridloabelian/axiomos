@@ -48,6 +48,17 @@ axiomos/
    ```bash
    npm start
    ```
+3. **Build & Deploy ke Cloudflare (Pages / Workers):**
+   - **Via Dashboard Cloudflare (Zero-Config Git Integration):**
+     Hubungkan repositori `ridloabelian/axiomos` di **Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git**, gunakan:
+     - **Build command:** `npm run build`
+     - **Build output directory:** `dist`
+   - **Via GitHub Actions (Otomatis setiap Push ke `main`):**
+     Tambahkan `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID` pada **Settings → Secrets and variables → Actions** di repositori GitHub. Workflow [`.github/workflows/deploy-cloudflare.yml`](./.github/workflows/deploy-cloudflare.yml) akan otomatis mempublikasikan ke proyek Cloudflare Pages `axiomos`.
+   - **Via Wrangler CLI:**
+     ```bash
+     npm run deploy:cf
+     ```
 
 ## Lisensi
 

@@ -6,7 +6,10 @@
   "main": "src/app.js",
   "scripts": {
     "test": "node --test tests/engine.test.js",
-    "start": "npx -y serve -l 4173 ."
+    "build": "node scripts/build.js",
+    "start": "npx -y serve -l 4173 .",
+    "deploy:cf": "npm run build && npx -y wrangler@latest pages deploy dist --project-name=axiomos",
+    "deploy:cf:workers": "npm run build && npx -y wrangler@latest deploy"
   },
   "keywords": [
     "first-principles",
