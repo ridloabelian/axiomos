@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AxiomOS — First-Principles Work & Company Operating System</title>
+  <meta name="description" content="Open-source operating system yang mengimplementasikan First Principles Thinking, Time Blocking 5 Menit, Flat-Org Micro-ERP, dan High-Velocity Decision ala Elon Musk secara hulu ke hilir." />
+  <link rel="stylesheet" href="./src/styles/index.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1 class="brand-title">
+          AxiomOS
+          <span class="brand-tag">OPEN-SOURCE HULU-HILIR v1.0</span>
+        </h1>
+        <p class="brand-subtitle">
+          Sistem Operasi Kerja & Organisasi Berbasis First Principles Thinking, Time Blocking 5-Menit, Flat-Org ERP, dan Eksekusi Cepat
+        </p>
+      </div>
+      <div class="toolbar-controls">
+        <label for="preset-selector" style="font-size:12px;color:var(--text-secondary);">Studi Kasus:</label>
+        <select id="preset-selector">
+          <option value="elon_musk">SpaceX & Tesla (Studi Kasus Video Elon Musk)</option>
+          <option value="umkm_indonesia">Bisnis / UMKM Indonesia (Manufaktur & ERP)</option>
+        </select>
+      </div>
+    </header>
+
+    <nav class="pipeline-strip" aria-label="Alur Hulu ke Hilir">
+      <div class="pipeline-step active" data-tab="hulu-fp" id="tab-btn-fp">
+        <div class="step-stage">1. Hulu: Pola Pikir</div>
+        <div class="step-title">First Principles Lab</div>
+        <div class="step-metric" id="metric-fp">Memuat...</div>
+      </div>
+      <div class="pipeline-step" data-tab="hulu-time" id="tab-btn-time">
+        <div class="step-stage">2. Hulu: Manajemen Diri</div>
+        <div class="step-title">5-Min Timebox & Context Shield</div>
+        <div class="step-metric" id="metric-time">Memuat...</div>
+      </div>
+      <div class="pipeline-step" data-tab="tengah-erp" id="tab-btn-erp">
+        <div class="step-stage">3. Tengah: Proses & Sistem</div>
+        <div class="step-title">Flat-Org & Autonomous ERP</div>
+        <div class="step-metric" id="metric-erp">Memuat...</div>
+      </div>
+      <div class="pipeline-step" data-tab="hilir-decision" id="tab-btn-decision">
+        <div class="step-stage">4. Hilir: Eksekusi Cepat</div>
+        <div class="step-title">Anti-Meeting & Rapid Decision</div>
+        <div class="step-metric" id="metric-decision">Memuat...</div>
+      </div>
+    </nav>
+
+    <section id="panel-hulu-fp" class="module-panel active">
+      <div class="section-header">
+        <div>
+          <h2>Modul 1 (Hulu): First Principles Deconstructor & Idiocy Index</h2>
+          <p style="color:var(--text-secondary);font-size:13px;">
+            Bongkar asumsi pasar hingga ke fakta fisika & biaya bahan baku dasar, lalu rancang solusi baru dari nol.
+          </p>
+        </div>
+      </div>
+      <div id="fp-content"></div>
+    </section>
+
+    <section id="panel-hulu-time" class="module-panel">
+      <div class="section-header">
+        <div>
+          <h2>Modul 2 (Hulu): 5-Minute Time Blocking & Anti Context-Switching</h2>
+          <p style="color:var(--text-secondary);font-size:13px;">
+            Bagi waktu dalam blok mikro 5 menit, kunci 1 hari untuk 1 konteks perusahaan, dan jaga tidur minimal 6 jam.
+          </p>
+        </div>
+      </div>
+      <div id="time-content"></div>
+    </section>
+
+    <section id="panel-tengah-erp" class="module-panel">
+      <div class="section-header">
+        <div>
+          <h2>Modul 3 (Tengah): Flat-Org DRI Pods & Real-Time Micro-ERP</h2>
+          <p style="color:var(--text-secondary);font-size:13px;">
+            Tim kecil bertalenta tinggi dengan otonomi penuh, birokrasi datar (maksimal 2 layer), dan integrasi ERP real-time.
+          </p>
+        </div>
+      </div>
+      <div id="erp-content"></div>
+    </section>
+
+    <section id="panel-hilir-decision" class="module-panel">
+      <div class="section-header">
+        <div>
+          <h2>Modul 4 (Hilir): Anti-Meeting Gatekeeper, Walk-Out Protocol & Decision Velocity</h2>
+          <p style="color:var(--text-secondary);font-size:13px;">
+            Pantau biaya rapat detik demi detik, izinkan Walk-Out jika tidak relevan, dan ambil keputusan cepat berbasis data.
+          </p>
+        </div>
+      </div>
+      <div id="decision-content"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

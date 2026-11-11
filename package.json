@@ -1,0 +1,22 @@
+{
+  "name": "axiomos",
+  "version": "1.0.0",
+  "description": "Open-Source First-Principles Work & Company Operating System (Hulu-ke-Hilir implementation of Elon Musk's productivity, flat-org ERP, and decision velocity framework)",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "node --test tests/engine.test.js",
+    "start": "npx -y serve -l 4173 ."
+  },
+  "keywords": [
+    "first-principles",
+    "time-blocking",
+    "flat-organization",
+    "micro-erp",
+    "decision-velocity",
+    "productivity",
+    "open-source"
+  ],
+  "author": "AxiomOS Contributors",
+  "license": "MIT"
+}
